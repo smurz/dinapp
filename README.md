@@ -24,11 +24,11 @@ All In-App contracts have fallback functions to handle payment and getMoney func
 
 **In-App Generator**
 In-App Generator contract is published on Ethereum Main Net and Rinkeby, Ropsten test networks. You can access its functionality with [Contract ABI from this repo](https://github.com/smurz/dinapp/blob/master/Abi/InAppGeneratorAbi.json)
-| **Network** | **Address** |
-|---------:|:---------|
-|Main Net |`0xdb178152ae492bee5b4f4f5f40d1befbfdfc064b`|
-|Rinkeby|`0x31aaf76e08ca427eebb987c9e15d6aef0068e722`|
-|Ropsten|`0x703bb0c92e5839d482dbf4bc387dceef14206a98`|
+ Network | Address 
+---------|---------
+Main Net |`0xdb178152ae492bee5b4f4f5f40d1befbfdfc064b`
+Rinkeby|`0x31aaf76e08ca427eebb987c9e15d6aef0068e722`
+Ropsten|`0x703bb0c92e5839d482dbf4bc387dceef14206a98`
 
 #### DINAPP client library
 Is developed targeting netstandard 1.1, hence it is compatible with all the operating systems (Windows, Linux, MacOS, Android and OSX).
