@@ -38,7 +38,7 @@ var generatorAbi = web3.eth.contract(AbiOfContract);
 var contractAddress = /* In-App Generator address of current Network */
 var generatorContract = generatorAbi.at(contractAddress);
 ```
-
+For deploying contracts you should sign transaction. About signing read [documentation of Web3](http://web3js.readthedocs.io/en/1.0/web3-eth.html?highlight=signTransaction#signtransaction)
 #### Permanent In-App
 Creating permanent In-App using Web3.
 ```js
@@ -48,8 +48,9 @@ var symbol = /* ERC20 symbol of contract */;
 var description = /* Description of In-App */;
 var projectName = /* Name of project */;
 var addressOfDeveloper = /* You will deploy In-App from this address */;
+var gasAmount = /* Amount of gas for deploy contract. We recomend use ~2000000 */
 
-generatorContract.createPermanent(buyPriceInWei, inAppName, symbol, description, projectName).send({from: addressOfDeveloper}); 
+generatorContract.createPermanent(buyPriceInWei, inAppName, symbol, description, projectName).send({from: addressOfDeveloper, gas: gasAmount}); 
 ```
 #### Subscription In-App
 Creating subscription In-App using Web3.
@@ -61,8 +62,9 @@ var symbol = /* ERC20 symbol of contract */;
 var description = /* Description of In-App */;
 var projectName = /* Name of project */;
 var addressOfDeveloper = /* You will deploy In-App from this address */;
+var gasAmount = /* Amount of gas for deploy contract. We recomend use ~2000000 */
 
-generatorContract.createSubscription(buyPriceInWei, amountOfDays, inAppName, symbol, description, projectName).send({from: addressOfDeveloper}); 
+generatorContract.createSubscription(buyPriceInWei, amountOfDays, inAppName, symbol, description, projectName).send({from: addressOfDeveloper, gas: gasAmount}); 
 ```
 #### Consumable In-App
 Creating Consumable In-App using Web3.
@@ -73,9 +75,17 @@ var symbol = /* ERC20 symbol of contract */;
 var description = /* Description of In-App */;
 var projectName = /* Name of project */;
 var addressOfDeveloper = /* You will deploy In-App from this address */;
+var gasAmount = /* Amount of gas for deploy contract. We recomend use ~2000000 */
 
-generatorContract.createConsumable(buyPriceInWei, inAppName, symbol, description, projectName).send({from: addressOfDeveloper}); 
+generatorContract.createConsumable(buyPriceInWei, inAppName, symbol, description, projectName).send({from: addressOfDeveloper, gas: gasAmount}); 
 ```
+After the creating of In-App you should wait while contract will be confirm. You can get address of new contract using this code.
+```js
+var developerAddress = /* Address of developer who deploy the contract */;
+generatorContract.inAppInfoCount(developerAddress); // In console you will see count of your InApps
+generatorContract.inAppInfos(developerAddress, /* Count_of_your_InApps */ - 1);
+```
+You can get all information about your InApp including address. Use this address in your application.
 
 #### DINAPP client library
 Is developed targeting netstandard 1.1, hence it is compatible with all the operating systems (Windows, Linux, MacOS, Android and OSX).
