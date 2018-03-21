@@ -29,6 +29,54 @@ In-App Generator contract is published on Ethereum Main Net and Rinkeby, Ropsten
 * Rinkeby  `0x31aaf76e08ca427eebb987c9e15d6aef0068e722`
 * Ropsten  `0x703bb0c92e5839d482dbf4bc387dceef14206a98`
 
+Creating In-App using Web3
+===============
+Getting generator contract.
+```js
+var AbiOfContract = /* Paste here json abi of Generator */
+var generatorAbi = web3.eth.contract(AbiOfContract);
+var contractAddress = /* In-App Generator address of current Network */
+var generatorContract = generatorAbi.at(contractAddress);
+```
+
+#### Permanent In-App
+Creating permanent In-App using Web3.
+```js
+var buyPriceInWei = /* Price in Wei. It should be more than 1000000 */;
+var inAppName = /* Name of new In-App */;
+var symbol = /* ERC20 symbol of contract */;
+var description = /* Description of In-App */;
+var projectName = /* Name of project */;
+var addressOfDeveloper = /* You will deploy In-App from this address */;
+
+generatorContract.createPermanent(buyPriceInWei, inAppName, symbol, description, projectName).send({from: addressOfDeveloper}); 
+```
+#### Subscription In-App
+Creating subscription In-App using Web3.
+```js
+var buyPriceInWei = /* Price in Wei. It should be more than 1000000 */;
+var amountOfDays = /* Subscription duration in days */
+var inAppName = /* Name of new In-App */;
+var symbol = /* ERC20 symbol of contract */;
+var description = /* Description of In-App */;
+var projectName = /* Name of project */;
+var addressOfDeveloper = /* You will deploy In-App from this address */;
+
+generatorContract.createSubscription(buyPriceInWei, amountOfDays, inAppName, symbol, description, projectName).send({from: addressOfDeveloper}); 
+```
+#### Consumable In-App
+Creating Consumable In-App using Web3.
+```js
+var buyPriceInWei = /* Price in Wei. It should be more than 1000000 */;
+var inAppName = /* Name of new In-App */;
+var symbol = /* ERC20 symbol of contract */;
+var description = /* Description of In-App */;
+var projectName = /* Name of project */;
+var addressOfDeveloper = /* You will deploy In-App from this address */;
+
+generatorContract.createConsumable(buyPriceInWei, inAppName, symbol, description, projectName).send({from: addressOfDeveloper}); 
+```
+
 #### DINAPP client library
 Is developed targeting netstandard 1.1, hence it is compatible with all the operating systems (Windows, Linux, MacOS, Android and OSX).
 
