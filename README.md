@@ -49,7 +49,7 @@ Create an instance of `InAppSeviceBuilder`. It takes `EthereumNetwork` enum as p
 
 ``` C#
     private IInAppService _inAppService;
-...
+
     var inAppServiceBuilder = new InAppSeviceBuilder(EthereumNetwork.MainNet);
     _inAppService = inAppServiceBuilder.Build();
 ```
