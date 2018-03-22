@@ -9,7 +9,7 @@ namespace DINAPP.Libs.Client.UWP
 {
     internal class ContractAddressChecker
     {
-        private const string ValidAddressRegex = "^0x[0-9a-f]{40}$";
+        private const string ValidAddressRegex = "^0x[0-9a-fA-F]{40}$";
 
         /// <summary>
         /// Returns true if address is a valid ethereum address
