@@ -28,6 +28,16 @@ In-App Generator contract is published on Ethereum Main Net and Rinkeby, Ropsten
 * Rinkeby  `0x31aaf76e08ca427eebb987c9e15d6aef0068e722`
 * Ropsten  `0x703bb0c92e5839d482dbf4bc387dceef14206a98`
 
+#### DINAPP client library
+Is developed targeting netstandard 1.1, hence it is compatible with all the operating systems (Windows, Linux, MacOS, Android and OSX).
+
+###### Client library features:
+1) Check the subscription status or the number of in-app products bought.
+2) Access all the In-App product info.
+3) Simplifies payment process with QR code and ethereum Uri scheme.
+4) Allows to acquire In-App product directly with user wallet key storage and password. 
+(Though it is not recommended and should be done only if you fully trust the source)
+
 Creating In-App using Ethereum Wallet
 ===============
 [WatchGeneratorContract]: /Screenshots/WatchGeneratorContract.png "Watch Generator Contract"
@@ -142,15 +152,6 @@ generatorContract.inAppInfos(developerAddress, /* Count_of_your_InApps */ - 1);
 ```
 You can get all information about your InApp including address. Use this address in your application.
 
-#### DINAPP client library
-Is developed targeting netstandard 1.1, hence it is compatible with all the operating systems (Windows, Linux, MacOS, Android and OSX).
-
-###### Client library features:
-1) Check the subscription status or the number of in-app products bought.
-2) Access all the In-App product info.
-3) Simplifies payment process with QR code and ethereum Uri scheme.
-4) Allows to acquire In-App product directly with user wallet key storage and password. 
-(Though it is not recommended and should be done only if you fully trust the source)
 
 # DINAPP.Libs.Client integration
 Take a look at [our code samples here](https://github.com/smurz/dinapp/tree/master/NetSamples) for better understanding of client library integration process with UWP app. There is also [an awsome in-app purchase dialog](https://github.com/smurz/dinapp/tree/master/NetSamples/DINAPP.Libs.Client.UWP) example there too. Feel free to just add it to your UWP app and modify its style as you wish.
