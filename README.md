@@ -46,31 +46,40 @@ For creating In-App using Wallet you should watch Generator Contract in "Contrac
 Take address of In-App Generator and [Contract ABI of In-AppGenerator](/Abi/InAppGeneratorAbi.json) for fields of watching.
 
 ![WatchGeneratorContract]
+
 Open generator info in list of your watching contracts.
 
 ![GeneratorInfo]
+
 In a field "Select function" select type of In-App. There are 3 types: Subscription, Permanent and Consumable In-Apps.
 
 ![SelectGeneratorFunction]
+
 Paste all needed information in fields. Be careful: Set buy price in wei, not in ether. `1000000000000000000 Wei == 1 Ether`.
 For more information read information about ERC20 protocol.
 
 ![CreateSubscribtion]
+
 Confirm executing of creation transaction.
 
 ![ExecuteCreation]
+
 Wait while this transaction will be confirmed.
 
 ![CheckTransaction]
+
 Back to the In-App Generator information and find count of your In-Apps.
 
 ![DevCountInApps]
+
 You can see information of your In-App by developer address and index.
 
 ![InAppInfo]
+
 Watch info by In-App address and ABI of In-App for [Subscribtion and Permanent In-App](/Abi/SubscriptionInAppAbi.json) or [Consumable In-App](/Abi/ConsumableInAppAbi.json)
 
 ![WatchInApp]
+
 You can manage your In-App by In-Apps Functions
 
 ![InAppFunctions]
