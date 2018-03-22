@@ -85,11 +85,11 @@ You can see information of your In-App by developer address and index.
 
 ![InAppInfo]
 
-Watch info by In-App address and ABI of In-App for [Subscribtion and Permanent In-App](/Abi/SubscriptionInAppAbi.json) or [Consumable In-App](/Abi/ConsumableInAppAbi.json)
+Watch info by In-App address and ABI of In-App for [Subscribtion and Permanent In-App](/Abi/SubscriptionInAppAbi.json) or [Consumable In-App](/Abi/ConsumableInAppAbi.json).
 
 ![WatchInApp]
 
-You can manage your In-App by In-Apps Functions
+You can manage your In-App by In-Apps Functions.
 
 ![InAppFunctions]
 
@@ -98,7 +98,7 @@ Creating In-App using Web3
 ===============
 Getting generator contract.
 ```js
-var AbiOfContract = /* Paste here json abi of Generator */
+var AbiOfContract = /* Paste here json abi of Generator */;
 var generatorAbi = web3.eth.contract(AbiOfContract);
 var contractAddress = /* In-App Generator address of current Network */
 var generatorContract = generatorAbi.at(contractAddress);
