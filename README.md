@@ -31,16 +31,16 @@ In-App Generator contract is published on Ethereum Main Net and Rinkeby, Ropsten
 
 Creating In-App using Ethereum Wallet
 ===============
-[WatchGeneratorContract]: /Screenshots/WatchGeneratorContract.jpg "Watch Generator Contract"
-[GeneratorInfo]: /Screenshots/GeneratorInfo.jpg "Generator Info"
-[SelectGeneratorFunction]: /Screenshots/SelectGeneratorFunction.jpg "Generator's Functions List"
-[CreateSubscribtion]: /Screenshots/CreateSubscribtion.jpg "Create Subscription In-App"
-[ExecuteCreation]: /Screenshots/ExecuteCreation.jpg "Execute Creation of Subscription In-App"
-[CheckTransaction]: /Screenshots/CheckTransaction.jpg "Check Transaction"
-[DevCountInApps]: /Screenshots/DevCountInApps.jpg "Developer's In-Apps amount"
-[InAppInfo]: /Screenshots/InAppInfo.jpg "In-App Information"
-[WatchInApp]: /Screenshots/WatchInApp.jpg "Watch In-App Contract"
-[InAppFunctions]: /Screenshots/InAppFunctions.jpg "In-App Contract's Functions"
+[WatchGeneratorContract]: /Screenshots/WatchGeneratorContract.png "Watch Generator Contract"
+[GeneratorInfo]: /Screenshots/GeneratorInfo.png "Generator Info"
+[SelectGeneratorFunction]: /Screenshots/SelectGeneratorFunction.png "Generator's Functions List"
+[CreateSubscribtion]: /Screenshots/CreateSubscribtion.png "Create Subscription In-App"
+[ExecuteCreation]: /Screenshots/ExecuteCreation.png "Execute Creation of Subscription In-App"
+[CheckTransaction]: /Screenshots/CheckTransaction.png "Check Transaction"
+[DevCountInApps]: /Screenshots/DevCountInApps.png "Developer's In-Apps amount"
+[InAppInfo]: /Screenshots/InAppInfo.png "In-App Information"
+[WatchInApp]: /Screenshots/WatchInApp.png "Watch In-App Contract"
+[InAppFunctions]: /Screenshots/InAppFunctions.png "In-App Contract's Functions"
 
 For creating In-App using Wallet you should watch Generator Contract in "Contracts" section in application.
 Take address of In-App Generator and [Contract ABI of In-AppGenerator](/Abi/InAppGeneratorAbi.json) for fields of watching.
