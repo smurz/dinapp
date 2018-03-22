@@ -1,7 +1,6 @@
 # DINAPP
 
 ###### .net standard 1.1 sdk
-
 [![NuGet version](https://badge.fury.io/nu/DINAPP.Libs.Client.svg)](https://badge.fury.io/nu/DINAPP.Libs.Client)
 
 What is DINAPP?
@@ -153,10 +152,111 @@ Is developed targeting netstandard 1.1, hence it is compatible with all the oper
 4) Allows to acquire In-App product directly with user wallet key storage and password. 
 (Though it is not recommended and should be done only if you fully trust the source)
 
+# DINAPP.Libs.Client integration
+Take a look at [our code samples here](https://github.com/smurz/dinapp/tree/master/NetSamples) for better understanding of client library integration process with UWP app. There is also [an awsome in-app purchase dialog](https://github.com/smurz/dinapp/tree/master/NetSamples/DINAPP.Libs.Client.UWP) example there too. Feel free to just add it to your UWP app and modify its style as you wish.
+
+#### Install and initialize
+ Add DINAPP.Libs.Client reference via nuget
+`Install-Package DINAPP.Libs.Client -Version 1.0.0`
+
+Create an instance of `InAppSeviceBuilder`. It takes `EthereumNetwork` enum as parameter, choose `EthereumNetwork.MainNet` for your real-life products or one of the test networks (Rinkeby or Ropsten) for tests or debug builds. Then build an instance of `InAppService`.
+
+``` C#
+    private IInAppService _inAppService;
+
+    var inAppServiceBuilder = new InAppSeviceBuilder(EthereumNetwork.MainNet);
+    _inAppService = inAppServiceBuilder.Build();
+```
+
+#### Read in-app product info
+Before you charge your user some ethereum it is recommended to show some product info.
+You can get all in-app product info with `IInAppInfoReader`
+```C#
+    var inAppInfo = await _inAppService.InAppInfoReader
+                                       .GetProductInfoAsync("<paste your in-app contract address>");
+```
+If your in-app product is correctly published on the selected ethereum network you will get an object with this interface as a result.
+```C#
+  public interface IInAppInfo
+  {
+    string Name { get; }
+    string ProjectName { get; }
+    BigInteger PriceInWei { get; }
+    BigInteger DurationInDays { get; }
+    uint InAppType { get; }
+    string ContractAdress { get; }
+    string Description { get; }
+  }
+```
+You can also view the In-App contract publisher address and in-app product index for publisher in Generator
+```C#
+var publisherInfo = await _inAppService.InAppInfoReader
+                                       .GetInAppRegisteredByAddressAsync("<paste your in-app contract address>");
+```
+#### Check in-app purchase status
+In-App purchase status can be checked with `ILicenseChecker`. All status checks require User Wallet Address, that user used to buy an in-app product from. Prompt user to enter it somewhere and store it for further use.
+Check Time-Limited and Permanent subscriptions status with `GetSubscriptionStatusAsync`
+```C#
+            var subscriptionStatus =
+                await _inAppService.LicenseChecker.GetSubscriptionStatusAsync(
+                    "0x... subscription in-app address",
+                    "0x... user wallet address");
+            if(subscriptionStatus.IsActive)
+            {
+                // unlock some cool features for the subscribed user
+            }
+```
+Check the number of simple in-app products bought with `GetConsumableStatusAsync`
+```C#
+            var consumableStatus = await _inAppService.LicenseChecker.GetConsumableStatusAsync(
+                "0x... consumable in-app address",
+                "0x... user wallet address");
+            var productsCount = consumableStatus.Count;
+```
+Ethereum blockchain has some restrictions, so we can't track how user spends your in-app consumables with our contract (otherwise he would have to pay for each transaction), so you should store the initial Count somewhere and track the change. We will have some examples on how to implement this later.
+
+#### Payment methods
+The most simple way to let user acquire **In-App product** is to show the **contract address** and its **price in Ether**. You can get both from `InAppInfoReader` as shown in example above. After that user can go to their wallet and use **In-App contract fallback** or **handlePayment** function to acquire in-app token. 
+
+Our client library provides some methods to simplify payment process such as
+* ethereum URI scheme
+``` C#
+var uriScheme = await _inAppService.Payment.GetPaymentUriSchemeAsync("0x... in-app address");
+```
+* QR code
+``` C#
+var qrCode = await _inAppService.Payment.GetQrCodeMatrixAsync("0x... in-app address");
+```
+* Direct authorized payment. (Not recommended, if you don't fully trust the source)
+```C#
+                //user wallet password
+                var password = "";
+                //read user wallet keystore .json file
+                var keystore = "";
+
+                //create new instance of KeyStorageInfo
+                var keyStorageInfo = new KeyStorageInfo(password, keystore);
+
+                //gas price = 2 Gwei. set it to what ever price is apropriate.
+                var gasPrice = new BigInteger(2000000000);
+
+                //handle payment
+                //PayAuthorizedAsync method return true if payment was successfull
+                var result = await _inAppService.Payment.PayAuthorizedAsync(
+                                                            InAppAddress, 
+                                                            UserWalletAddress, 
+                                                            keyStorageInfo, 
+                                                            gasPrice);
+
+                if (result)
+                {
+                    //check in app purchase status
+                    CheckInAppStatus();
+                }
+```
 
 # Roadmap
 * Documentation for creating and managing In-App products
-* Client library integration code examples
 * UI In-App purchase dialog for UWP
 * Developers client to simplify in-app creation process and track sales
 * UI In-App purchase dialog for Xamarin Forms, WPF

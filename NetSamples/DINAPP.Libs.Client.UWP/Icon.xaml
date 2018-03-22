@@ -1,0 +1,45 @@
+﻿<UserControl
+    x:Class="DINAPP.Libs.Client.UWP.Icon"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DINAPP.Libs.Client.UWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <Grid>
+        <StackPanel Orientation="Horizontal">
+            <Viewbox Width="24"
+                     Height="36"
+                     Stretch="UniformToFill">
+                <Canvas Width="480"
+                    Height="720">
+                    <Canvas.Resources/>
+                    <Canvas>
+                        <Path Fill="#FF808080" StrokeThickness="0" Stroke="#FF3C3C3C" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="M 240 440 410 360 240 640 Z"/>
+                        <Path Fill="#FF808080" StrokeThickness="0" Stroke="#FF3C3C3C" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 80 360 160 -80 0 160 z"/>
+                        <Path Fill="#FF808080" StrokeThickness="0" Stroke="#FF3C3C3C" StrokeMiterLimit="4" StrokeLineJoin="Miter" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 240 80 0 200 170 80 z"/>
+                        <Canvas Opacity="1">
+                            <Path Fill="#FF000000" StrokeThickness="10" Stroke="#FF3C3C3C" StrokeMiterLimit="4" StrokeLineJoin="Bevel" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Data="M 412 364.9262 242 84.926202 72.000002 364.9262 242 284.9262 242 84.926202 Z"/>
+                            <Path Fill="#FF000000" StrokeThickness="10" Stroke="#FF3C3C3C" StrokeMiterLimit="4" StrokeLineJoin="Bevel" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 242 284.9262 170 80"/>
+                            <Path Fill="#FF000000" StrokeThickness="10" Stroke="#FF3C3C3C" StrokeMiterLimit="4" StrokeLineJoin="Bevel" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" Data="m 242 444.54884 0 -159.62264 170 80 z"/>
+                            <Path Fill="#FF000000" StrokeThickness="10" Stroke="#FF3C3C3C" StrokeMiterLimit="4" StrokeLineJoin="Bevel" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Data="m 412.56605 363.34363 -170 280 -170.000009 -280 170.000009 80.00001 0 199.99999 z"/>
+                        </Canvas>
+                    </Canvas>
+                </Canvas>
+            </Viewbox>
+            <!--<Path Height="28"
+                  Fill="Gray" 
+                  StrokeThickness="0.5"
+                  Stroke="Gray"
+                  Stretch="UniformToFill"
+                  Data="m 439.81132 374.43396 173.20755 104.43396 0 138.39623 z M 443.20754 348.11321 612.16981 66.226413 779.43396 346.4151 612.16981 444.90566 611.32075 270.84906 777.73584 345.56604 610.47169 66.226413 612.16981 271.69812 Z"/>-->
+            <TextBlock Text="DINAPP"
+                       Margin="0 0 0 0"
+                       VerticalAlignment="Center"
+                       Foreground="DimGray"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
