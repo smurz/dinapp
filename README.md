@@ -46,7 +46,7 @@ Create In-App Contract with Ethereum Wallet
 
 Hereby we will describe the process of creating In-App Product Contract using [Ethereum Wallet](https://github.com/ethereum/mist/releases) application.
 
-Go to `CONTRACTS`, click `WATCH CONTRACT` and add our InAppGenerator Contract
+Go to `CONTRACTS`, click `WATCH CONTRACT` and add our InAppGenerator Contract.
 Copy and paste the **CONTRACT ADDRESS** of In-App Generator for your current network and the [Contract ABI of In-App Generator](/Abi/InAppGeneratorAbi.json) as **JSON INTERFACE** and name it "In-App Generator".
 
 In-App Generator Contract addresses:
@@ -64,7 +64,7 @@ Select contract function with the In-App Product type you want to create. There 
 
 ![SelectGeneratorFunction]
 
-Fill all in-app product information fields. Be careful: Set buy price in wei, not in ether. `1000000000000000000 Wei = 1 Ether`.
+Fill all in-app product information fields. Be careful: Set buy price in wei, not in ether. `1000000000000000000 Wei = 1 Ether`. In-App product price must be more than 1000000 Wei (1 Mwei or 0.000000000001 Ether).
 
 ![CreateSubscribtion]
 
@@ -95,33 +95,40 @@ After that you can manage your In-App by In-Apps Functions.
 
 Use the published In-App product contract address in our **DINAPP.Libs.Client** library.
 
-Creating In-App using Web3
+Create In-App Contract with Web3
 ===============
-Getting generator contract.
+Get the In-App Generator contract.
+Copy and paste the **CONTRACT ADDRESS** of In-App Generator for your current network and the [Contract ABI of In-App Generator](/Abi/InAppGeneratorAbi.json).
+
+In-App Generator Contract addresses:
+* Main Net `0xdb178152ae492bee5b4f4f5f40d1befbfdfc064b`
+* Rinkeby  `0x31aaf76e08ca427eebb987c9e15d6aef0068e722`
+* Ropsten  `0x703bb0c92e5839d482dbf4bc387dceef14206a98`
+
 ```js
-var AbiOfContract = /* Paste here json abi of Generator */;
+var AbiOfContract = /* Paste here json abi of In-App Generator */;
 var generatorAbi = web3.eth.contract(AbiOfContract);
 var contractAddress = /* In-App Generator address of current Network */
 var generatorContract = generatorAbi.at(contractAddress);
 ```
-For deploying contracts you should sign transaction. About signing read [documentation of Web3](http://web3js.readthedocs.io/en/1.0/web3-eth.html?highlight=signTransaction#signtransaction)
+To have your In-App contracts deployed you should sign the transaction. If you have no idea on how to do this, you should read [the Web3 documentation](http://web3js.readthedocs.io/en/1.0/web3-eth.html?highlight=signTransaction#signtransaction)
 #### Permanent In-App
-Creating permanent In-App using Web3.
+Create permanent In-App product with Web3.
 ```js
-var buyPriceInWei = /* Price in Wei. It should be more than 1000000 */;
-var inAppName = /* Name of new In-App */;
+var buyPriceInWei = /* Price in Wei. It required to be more than 1000000 */;
+var inAppName = /* In-App Product name */;
 var symbol = /* ERC20 symbol of contract */;
-var description = /* Description of In-App */;
-var projectName = /* Name of project */;
+var description = /* In-App Product description */;
+var projectName = /* Project Name */;
 var addressOfDeveloper = /* You will deploy In-App from this address */;
-var gasAmount = /* Amount of gas for deploy contract. We recomend use ~2000000 */
+var gasAmount = /* Amount of gas to deploy contract. We recomend use ~2000000 */
 
 generatorContract.createPermanent(buyPriceInWei, inAppName, symbol, description, projectName).send({from: addressOfDeveloper, gas: gasAmount}); 
 ```
 #### Subscription In-App
-Creating subscription In-App using Web3.
+Create subscription In-App product with Web3.
 ```js
-var buyPriceInWei = /* Price in Wei. It should be more than 1000000 */;
+var buyPriceInWei = /* Price in Wei. It should be more than 1000000 Wei */;
 var amountOfDays = /* Subscription duration in days */
 var inAppName = /* Name of new In-App */;
 var symbol = /* ERC20 symbol of contract */;
@@ -133,9 +140,9 @@ var gasAmount = /* Amount of gas for deploy contract. We recomend use ~2000000 *
 generatorContract.createSubscription(buyPriceInWei, amountOfDays, inAppName, symbol, description, projectName).send({from: addressOfDeveloper, gas: gasAmount}); 
 ```
 #### Consumable In-App
-Creating Consumable In-App using Web3.
+Create Consumable In-App product with Web3.
 ```js
-var buyPriceInWei = /* Price in Wei. It should be more than 1000000 */;
+var buyPriceInWei = /* Price in Wei. It should be more than 1000000 Wei */;
 var inAppName = /* Name of new In-App */;
 var symbol = /* ERC20 symbol of contract */;
 var description = /* Description of In-App */;
@@ -145,13 +152,13 @@ var gasAmount = /* Amount of gas for deploy contract. We recomend use ~2000000 *
 
 generatorContract.createConsumable(buyPriceInWei, inAppName, symbol, description, projectName).send({from: addressOfDeveloper, gas: gasAmount}); 
 ```
-After the creating of In-App you should wait while contract will be confirm. You can get address of new contract using this code.
+Send the transaction and wait for it to confirm. You can get the address of your In-App Contract using this code.
 ```js
-var developerAddress = /* Address of developer who deploy the contract */;
-generatorContract.inAppInfoCount(developerAddress); // In console you will see count of your InApps
-generatorContract.inAppInfos(developerAddress, /* Count_of_your_InApps */ - 1);
+var developerAddress = /* your developer wallet address */;
+generatorContract.inAppInfoCount(developerAddress); /* Get the count of your InApps products */
+generatorContract.inAppInfos(developerAddress, /* Count_of_your_InApps - 1 for the latest created in-app product*/);
 ```
-You can get all information about your InApp including address. Use this address in your application.
+You will get all the information about InApp Product including its address. Use the published In-App product contract address in our **DINAPP.Libs.Client** library.
 
 
 # DINAPP.Libs.Client integration
