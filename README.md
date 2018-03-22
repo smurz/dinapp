@@ -29,6 +29,23 @@ In-App Generator contract is published on Ethereum Main Net and Rinkeby, Ropsten
 * Rinkeby  `0x31aaf76e08ca427eebb987c9e15d6aef0068e722`
 * Ropsten  `0x703bb0c92e5839d482dbf4bc387dceef14206a98`
 
+Creating In-App using Ethereum Wallet
+===============
+[WatchGeneratorContract]: /Screenshots/WatchGeneratorContract.jpg "Watch Generator Contract"
+[GeneratorInfo]: /Screenshots/GeneratorInfo.jpg "Generator Info"
+[SelectGeneratorFunction]: /Screenshots/SelectGeneratorFunction.jpg "Generator's Functions List"
+[CreateSubscribtion]: /Screenshots/CreateSubscribtion.jpg "Create Subscription In-App"
+[ExecuteCreation]: /Screenshots/ExecuteCreation.jpg "Execute Creation of Subscription In-App"
+[CheckTransaction]: /Screenshots/CheckTransaction.jpg "Check Transaction"
+[DevCountInApps]: /Screenshots/DevCountInApps.jpg "Developer's In-Apps amount"
+[InAppInfo]: /Screenshots/InAppInfo.jpg "In-App Information"
+[WatchInApp]: /Screenshots/WatchInApp.jpg "Watch In-App Contract"
+[InAppFunctions]: /Screenshots/InAppFunctions.jpg "In-App Contract's Functions"
+
+For creating In-App using Wallet you should watch Generator Contract in "Contracts" section in application.
+![WatchGeneratorContract]
+
+
 Creating In-App using Web3
 ===============
 Getting generator contract.
