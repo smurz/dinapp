@@ -21,13 +21,6 @@ DINAPP includes a smart contract called In-App Generator that is used to create 
 
 All In-App contracts have fallback functions to handle payment and getMoney function to retrieve developers revenue. Fallback functions are designed to give out one in-app purchase token at once and return the change if user sends more ethereum than required by the price.
 
-###### In-App Generator
-In-App Generator contract is published on Ethereum Main Net and Rinkeby, Ropsten test networks. You can access its functionality with [Contract ABI from this repo](https://github.com/smurz/dinapp/blob/master/Abi/InAppGeneratorAbi.json) and addresses:
-
-* Main Net `0xdb178152ae492bee5b4f4f5f40d1befbfdfc064b`
-* Rinkeby  `0x31aaf76e08ca427eebb987c9e15d6aef0068e722`
-* Ropsten  `0x703bb0c92e5839d482dbf4bc387dceef14206a98`
-
 #### DINAPP client library
 Is developed targeting netstandard 1.1, hence it is compatible with all the operating systems (Windows, Linux, MacOS, Android and OSX).
 
@@ -38,61 +31,69 @@ Is developed targeting netstandard 1.1, hence it is compatible with all the oper
 4) Allows to acquire In-App product directly with user wallet key storage and password. 
 (Though it is not recommended and should be done only if you fully trust the source)
 
-Creating In-App using Ethereum Wallet
+Create In-App Contract with Ethereum Wallet
 ===============
-[WatchGeneratorContract]: /Screenshots/WatchGeneratorContract.png "Watch Generator Contract"
-[GeneratorInfo]: /Screenshots/GeneratorInfo.png "Generator Info"
-[SelectGeneratorFunction]: /Screenshots/SelectGeneratorFunction.png "Generator's Functions List"
-[CreateSubscribtion]: /Screenshots/CreateSubscribtion.png "Create Subscription In-App"
-[ExecuteCreation]: /Screenshots/ExecuteCreation.png "Execute Creation of Subscription In-App"
-[CheckTransaction]: /Screenshots/CheckTransaction.png "Check Transaction"
-[DevCountInApps]: /Screenshots/DevCountInApps.png "Developer's In-Apps amount"
-[InAppInfo]: /Screenshots/InAppInfo.png "In-App Information"
-[WatchInApp]: /Screenshots/WatchInApp.png "Watch In-App Contract"
-[InAppFunctions]: /Screenshots/InAppFunctions.png "In-App Contract's Functions"
+[WatchGeneratorContract]: https://github.com/smurz/dinapp/blob/master/Screenshots/WatchGeneratorContract.png?raw=true "Watch Generator Contract"
+[GeneratorInfo]: https://github.com/smurz/dinapp/blob/master/Screenshots/GeneratorInfo.png?raw=true "Generator Info"
+[SelectGeneratorFunction]: https://github.com/smurz/dinapp/blob/master/Screenshots/SelectGeneratorFunction.png?raw=true "Generator's Functions List"
+[CreateSubscribtion]: https://github.com/smurz/dinapp/blob/master/Screenshots/CreateSubscribtion.png?raw=true "Create Subscription In-App"
+[ExecuteCreation]: https://github.com/smurz/dinapp/blob/master/Screenshots/ExecuteCreation.png?raw=true "Execute Creation of Subscription In-App"
+[CheckTransaction]: https://github.com/smurz/dinapp/blob/master/Screenshots/CheckTransaction.png?raw=true "Check Transaction"
+[DevCountInApps]: https://github.com/smurz/dinapp/blob/master/Screenshots/DevCountInApps.png?raw=true "Developer's In-Apps amount"
+[InAppInfo]: https://github.com/smurz/dinapp/blob/master/Screenshots/InAppInfo.png?raw=true "In-App Information"
+[WatchInApp]: https://github.com/smurz/dinapp/blob/master/Screenshots/WatchInApp.png?raw=true "Watch In-App Contract"
+[InAppFunctions]: https://github.com/smurz/dinapp/blob/master/Screenshots/InAppFunctions.png?raw=true "In-App Contract's Functions"
 
-For creating In-App using Wallet you should watch Generator Contract in "Contracts" section in application.
-Take address of In-App Generator and [Contract ABI of In-AppGenerator](/Abi/InAppGeneratorAbi.json) for fields of watching.
+Hereby we will describe the process of creating In-App Product Contract using [Ethereum Wallet](https://github.com/ethereum/mist/releases) application.
+
+Go to `CONTRACTS`, click `WATCH CONTRACT` and add our InAppGenerator Contract
+Copy and paste the **CONTRACT ADDRESS** of In-App Generator for your current network and the [Contract ABI of In-App Generator](/Abi/InAppGeneratorAbi.json) as **JSON INTERFACE** and name it "In-App Generator".
+
+In-App Generator Contract addresses:
+* Main Net `0xdb178152ae492bee5b4f4f5f40d1befbfdfc064b`
+* Rinkeby  `0x31aaf76e08ca427eebb987c9e15d6aef0068e722`
+* Ropsten  `0x703bb0c92e5839d482dbf4bc387dceef14206a98`
 
 ![WatchGeneratorContract]
 
-Open generator info in list of your watching contracts.
+Open generator contract info in the contracts watch list.
 
 ![GeneratorInfo]
 
-In a field "Select function" select type of In-App. There are 3 types: Subscription, Permanent and Consumable In-Apps.
+Select contract function with the In-App Product type you want to create. There are 3 in-app product types: Subscription, Permanent subscription and Consumable In-App product.
 
 ![SelectGeneratorFunction]
 
-Paste all needed information in fields. Be careful: Set buy price in wei, not in ether. `1000000000000000000 Wei == 1 Ether`.
-For more information read information about ERC20 protocol.
+Fill all in-app product information fields. Be careful: Set buy price in wei, not in ether. `1000000000000000000 Wei = 1 Ether`.
 
 ![CreateSubscribtion]
 
-Confirm executing of creation transaction.
+Confirm and execute function.
 
 ![ExecuteCreation]
 
-Wait while this transaction will be confirmed.
+Wait until the transaction is confirmed.
 
 ![CheckTransaction]
 
-Back to the In-App Generator information and find count of your In-Apps.
+Go back to the In-App Generator contract info, find `In app info count` and enter your wallet address. You will see the number of in-app products created for your developer wallet address.
 
 ![DevCountInApps]
 
-You can see information of your In-App by developer address and index.
+Get info of the latest in-app created by entering your developer wallet address and index (for the latest created in-app product you should enter Count - 1).
 
 ![InAppInfo]
 
-Watch info by In-App address and ABI of In-App for [Subscribtion and Permanent In-App](/Abi/SubscriptionInAppAbi.json) or [Consumable In-App](/Abi/ConsumableInAppAbi.json).
+Add In-App Product token contract to Watch List. Copy and paste the contract address from the contract info and take `JSON INTERFACE` for [Subscribtion and Permanent In-App](/Abi/SubscriptionInAppAbi.json) or [Consumable In-App](/Abi/ConsumableInAppAbi.json) from this repo [Abis section](https://github.com/smurz/dinapp/tree/master/Abi).
 
 ![WatchInApp]
 
-You can manage your In-App by In-Apps Functions.
+After that you can manage your In-App by In-Apps Functions.
 
 ![InAppFunctions]
 
+
+Use the published In-App product contract address in our **DINAPP.Libs.Client** library.
 
 Creating In-App using Web3
 ===============
