@@ -44,6 +44,13 @@ Create In-App Contract with Ethereum Wallet
 [WatchInApp]: https://github.com/smurz/dinapp/blob/master/Screenshots/WatchInApp.png?raw=true "Watch In-App Contract"
 [InAppFunctions]: https://github.com/smurz/dinapp/blob/master/Screenshots/InAppFunctions.png?raw=true "In-App Contract's Functions"
 
+[HandlePayment]: https://github.com/smurz/dinapp/blob/master/Screenshots/HandlePayment.png?raw=true "Pay by HandlePayment function"
+[SendFunds]: https://github.com/smurz/dinapp/blob/master/Screenshots/HandlePayment.png?raw=true "Pay by sending ether to account"
+[Promo]: https://github.com/smurz/dinapp/blob/master/Screenshots/Promo.png?raw=true "Create promo subscribtion"
+[Freeze]: https://github.com/smurz/dinapp/blob/master/Screenshots/Freeze.png?raw=true "Freeze account"
+[Unfreeze]: https://github.com/smurz/dinapp/blob/master/Screenshots/Unfreeze.png?raw=true "Unfreeze account"
+[GetMoney]: https://github.com/smurz/dinapp/blob/master/Screenshots/InAppFunctions.png?raw=true "Get money to developer account"
+
 Hereby we will describe the process of creating In-App Product Contract using [Ethereum Wallet](https://github.com/ethereum/mist/releases) application.
 
 Go to `CONTRACTS`, click `WATCH CONTRACT` and add our InAppGenerator Contract.
@@ -94,6 +101,30 @@ After that you can manage your In-App by In-Apps Functions.
 
 
 Use the published In-App product contract address in our **DINAPP.Libs.Client** library.
+
+###### Other managment functions:
+
+There are 2 ways for paying your In-App. User can send ether to address of In-App.
+
+![SendFunds]
+
+Or user can execute payable function `HandlePayment` in contract of In-App.
+
+![HandlePayment]
+
+Also you can generate free promo for user. It is a free subscribe.
+
+![Promo]
+
+In disputed situations, you can freeze a user's subscription for a specified number of days and unfreeze it later.
+
+![Freeze]
+
+![Unfreeze]
+
+Use function `GetMoney` when you want to transfer ether from In-App address to your address.
+
+![GetMoney]
 
 Create In-App Contract with Web3
 ===============
