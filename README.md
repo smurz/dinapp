@@ -45,11 +45,15 @@ Create In-App Contract with Ethereum Wallet
 [InAppFunctions]: https://github.com/smurz/dinapp/blob/master/Screenshots/InAppFunctions.png?raw=true "In-App Contract's Functions"
 
 [HandlePayment]: https://github.com/smurz/dinapp/blob/master/Screenshots/HandlePayment.png?raw=true "Pay by HandlePayment function"
-[SendFunds]: https://github.com/smurz/dinapp/blob/master/Screenshots/HandlePayment.png?raw=true "Pay by sending ether to account"
+[SendFunds]: https://github.com/smurz/dinapp/blob/master/Screenshots/SendFunds.png?raw=true "Pay by sending ether to account"
 [Promo]: https://github.com/smurz/dinapp/blob/master/Screenshots/Promo.png?raw=true "Create promo subscribtion"
 [Freeze]: https://github.com/smurz/dinapp/blob/master/Screenshots/Freeze.png?raw=true "Freeze account"
 [Unfreeze]: https://github.com/smurz/dinapp/blob/master/Screenshots/Unfreeze.png?raw=true "Unfreeze account"
-[GetMoney]: https://github.com/smurz/dinapp/blob/master/Screenshots/InAppFunctions.png?raw=true "Get money to developer account"
+[GetMoney]: https://github.com/smurz/dinapp/blob/master/Screenshots/GetMoney.png?raw=true "Get money to developer account"
+[SetDescription]: https://github.com/smurz/dinapp/blob/master/Screenshots/SetDescription.png?raw=true "Set Description function"
+[SetPrice]: https://github.com/smurz/dinapp/blob/master/Screenshots/SetPrice.png?raw=true "Set Price function"
+[Destruct]: https://github.com/smurz/dinapp/blob/master/Screenshots/Destruct.png?raw=true "Destruct In-App"
+
 
 Hereby we will describe the process of creating In-App Product Contract using [Ethereum Wallet](https://github.com/ethereum/mist/releases) application.
 
@@ -125,6 +129,16 @@ In disputed situations, you can freeze a user's subscription for a specified num
 Use function `GetMoney` when you want to transfer ether from In-App address to your address.
 
 ![GetMoney]
+
+Use functions `SetDescription` and `SetPrice` for changing information of In-App.
+
+![SetDescription]
+
+![SetPrice]
+
+You can destruct In-App contract using function `Destruct`.
+
+![Destruct]
 
 Create In-App Contract with Web3
 ===============
