@@ -106,21 +106,21 @@ After that you can manage your In-App by In-Apps Functions.
 
 Use the published In-App product contract address in our **DINAPP.Libs.Client** library.
 
-###### Other managment functions:
+### In-App purchase management:
 
-There are 2 ways for paying your In-App. User can send ether to address of In-App.
+There are 2 ways for paying for In-App product. User can send enough ether to In-App contract address directly.
 
 ![SendFunds]
 
-Or user can execute payable function `HandlePayment` in contract of In-App.
+Or user can execute payable function `HandlePayment` of In-App contract.
 
 ![HandlePayment]
 
-Also you can generate free promo for user. It is a free subscribe.
+You can give away free promo subscription or consumable to the user directly.
 
 ![Promo]
 
-In disputed situations, you can freeze a user's subscription for a specified number of days and unfreeze it later.
+If you think that user subscription is abused you can freeze a user's subscription for some days and unfreeze it later.
 
 ![Freeze]
 
@@ -130,13 +130,13 @@ Use function `GetMoney` when you want to transfer ether from In-App address to y
 
 ![GetMoney]
 
-Use functions `SetDescription` and `SetPrice` for changing information of In-App.
+Use functions `SetDescription` and `SetPrice` to change information about In-App Purchase.
 
 ![SetDescription]
 
 ![SetPrice]
 
-You can destruct In-App contract using function `Destruct`.
+You can destroy In-App contract using function `Destruct` and transfer all accumulated funds to your account. Keep in mind that it will cancel all of the subscriptions or bought products.
 
 ![Destruct]
 
